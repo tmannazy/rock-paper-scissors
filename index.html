@@ -8,116 +8,13 @@
     </head>
 
     <body>
-        <script>
-            function game() {
-                let count = 5,
-                    result,
-                    finalResult,
-                    playerCount = 0,
-                    computerCount = 0;
-
-                function computerPlay() {
-                    // Generate a random number between 0 to 2
-                    let randomNumber = Math.floor(Math.random() * 3);
-                    // if random number equals 0, return ROCK
-                    if (randomNumber === 0)
-                        return `rock`;
-                    // if random number equals 1, return PAPER
-                    else if (randomNumber === 1)
-                        return `paper`;
-                    // if random number equals 2, return SCISSORS
-                    else
-                        return `scissors`;
-                }
-
-                function playRound(playerSelection, computerSelection) {
-                    if (playerSelection === 'rock') { // if input from user is ROCK
-                        console.log(`You entered ${playerSelection}`);
-                        console.log(`Computer picked ${computerSelection}`);
-                        // Computer picks ROCK, return 'A tie'
-                        if (computerSelection === 'rock') {
-                            result = `You choices resulted in a tie`;
-                            console.log(result);
-                            // Computer picks PAPER, Computer wins
-                        } else if (computerSelection === 'paper') {
-                            computerCount++;
-                            result =
-                                `Computer wins this round with a score of ${computerCount} to Player's score of ${playerCount}`;
-                            console.log(result);
-                            // Computer picks SCISSORS, Player wins
-                        } else {
-                            playerCount++;
-                            result =
-                                `Player wins this round with a score of ${playerCount} to Computer's score of ${computerCount}`;
-                            console.log(result);
-                        }
-                    } else if (playerSelection.toLowerCase() === 'paper') { // input from user is PAPER
-                        console.log(`You entered ${playerSelection}`);
-                        console.log(`Computer picked ${computerSelection}`);
-                        // Computer picks PAPER, return 'A tie'
-                        if (computerSelection === 'paper') {
-                            result = `You choices resulted in a tie`;
-                            console.log(result);
-                            // Computer picks ROCK, Player wins
-                        } else if (computerSelection === 'rock') {
-                            playerCount++;
-                            result =
-                                `Player wins this round with a score of ${playerCount} to Computer's score of ${computerCount}`;
-                            console.log(result);
-                            // Computer picks SCISSORS, Computer wins
-                        } else {
-                            computerCount++;
-                            result =
-                                `Computer wins this round with a score of ${computerCount} to Player's score of ${playerCount}`;
-                            console.log(result);
-                        }
-                    } else if (playerSelection.toLowerCase() === 'scissors') { // input from user is SCISSORS
-                        console.log(`You entered ${playerSelection}`);
-                        console.log(`Computer picked ${computerSelection}`);
-                        // Computer picks SCISSORS, return 'A tie'
-                        if (computerSelection === 'scissors') {
-                            result = `You choices resulted in a tie`;
-                            console.log(result);
-                            // Computer picks PAPER, Player wins
-                        } else if (computerSelection === 'paper') {
-                            playerCount++;
-                            result =
-                                `Player wins this round with a score of ${playerCount} to Computer's score of ${computerCount}`;
-                            console.log(result);
-                            // Computer picks ROCK, Computer wins
-                        } else {
-                            computerCount++;
-                            result =
-                                `Computer wins this round with a score of ${computerCount} to Player's score of ${playerCount}`;
-                            console.log(result);
-                        }
-                    }
-                }
-
-                for (let i = 1; i <= count; i++) {
-                    const playerSelection = prompt('Enter your choice');
-                    const computerSelection = computerPlay();
-                    playRound(playerSelection.toLowerCase(), computerSelection);
-                }
-
-                if (playerCount > computerCount) {
-                    finalResult =
-                        `Player wins the game with a score of ${playerCount} to Computer's score of ${computerCount}`;
-                    console.log(finalResult);
-                } else if (playerCount < computerCount) {
-                    finalResult =
-                        `Computer wins the game with a score of ${computerCount} to Player's score of ${playerCount}`;
-                    console.log(finalResult);
-                } else {
-                    finalResult = `The game ended in a tie: ${computerCount} - ${playerCount}`;
-                    console.log(finalResult);
-                }
-            }
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissors">Scissors</button>
 
 
-            console.log(game());
 
-        </script>
+        <script src="script.js"></script>
     </body>
 
 </html>
