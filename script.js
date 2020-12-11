@@ -97,10 +97,10 @@ function playRound(playerSelection, computerSelection) {
         }
     }
     if (playerCount == 5) {
-        finalScore.innerHTML = `Player wins the game with the score of: ${playerCount}`;
+        finalScore.innerHTML = `Player wins the game with the score of: ${playerCount} points`;
         document.body.appendChild(finalScore);
     } else  if (computerCount == 5) {
-        finalScore.innerHTML = `Computer wins the game with the final score of ${computerCount}`;
+        finalScore.innerHTML = `Computer wins the game with the final score of ${computerCount} points`;
         document.body.appendChild(finalScore);
     }
 }
