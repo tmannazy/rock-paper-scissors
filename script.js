@@ -9,8 +9,10 @@
 
 let playerCount = 0,
     computerCount = 0,
+    drawCount = 1,
     playerDiv = document.createElement('div'),
     computerDiv = document.createElement('div'),
+    drawDiv = document.createElement('div'),
     scoreBoard = document.createElement('div'),
     finalScore = document.createElement('div'),
     computerSelection = computerPlay();
@@ -28,74 +30,27 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     if (!(playerCount == 5 || computerCount == 5)) {
-    computerSelection = computerPlay();
-        if (playerSelection.target === rock) {
-            computerDiv.innerHTML = `Computer selected ${computerSelection}`;
-            document.body.appendChild(computerDiv);
-            if (computerSelection === 'Rock') {
-                scoreBoard.innerHTML = `You choices were the same.
-                Player: ${playerCount},
-                Computer: ${computerCount}`;
-                document.body.appendChild(scoreBoard);
-            } else if (computerSelection === 'Paper') {
-                computerCount++;
-                scoreBoard.innerHTML = `Computer wins.
-                Computer: ${computerCount},
-                Player: ${playerCount}`;
-                document.body.appendChild(scoreBoard);
-            } else if (computerSelection === 'Scissors') {
-                playerCount++;
-                scoreBoard.innerHTML = `Player wins.
-                Player: ${playerCount},
-                Computer: ${computerCount}`;
-                document.body.appendChild(scoreBoard);
-            }
-        }
-        else if (playerSelection.target === paper) {
-            computerDiv.innerHTML = `Computer selected ${computerSelection}`;
-            document.body.appendChild(computerDiv);
-            if (computerSelection === 'Paper') {
-                scoreBoard.innerHTML = `You choices were the same.
-                Player: ${playerCount},
-                Computer: ${computerCount}`;
-                document.body.appendChild(scoreBoard);
-            } else if (computerSelection === 'Rock') {
-                playerCount++;
-                scoreBoard.innerHTML = `Player wins.
-                Player: ${playerCount},
-                Computer: ${computerCount}`;
-                document.body.appendChild(scoreBoard);
-            } else if (computerSelection === 'Scissors') {
-                computerCount++;
-                scoreBoard.innerHTML = `Computer wins.
-                Computer: ${computerCount},
-                Player: ${playerCount}`;
-                document.body.appendChild(scoreBoard);
-            }
-
-        } else if (playerSelection.target === scissors) {
-            computerDiv.innerHTML = `Computer selected ${computerSelection}`;
-            document.body.appendChild(computerDiv);
-            if (computerSelection === 'Scissors') {
-                scoreBoard.innerHTML = `You choices were the same.
-                Player: ${playerCount},
-                Computer: ${computerCount}`;
-                document.body.appendChild(scoreBoard);
-            } else if (computerSelection === 'Paper') {
-                playerCount++;
-                scoreBoard.innerHTML = `Player wins.
-                Player: ${playerCount},
-                Computer: ${computerCount}`;
-                document.body.appendChild(scoreBoard);
-            } else if (computerSelection === 'Rock') {
-                computerCount++;
-                scoreBoard.innerHTML = `Computer wins.
-                Computer: ${computerCount},
-                Player: ${playerCount}`;
-                document.body.appendChild(scoreBoard);
-            }
+        computerSelection = computerPlay();
+        if (playerSelection.target == rock && computerSelection == 'Rock' || playerSelection.target == scissors && computerSelection == 'Scissors' || playerSelection.target == paper && computerSelection == 'Paper') {
+            scoreBoard.innerHTML = `Draw game`;
+            drawDiv.innerHTML = ` Draw: ${drawCount++}`;
+            document.body.appendChild(scoreBoard);
+            document.body.appendChild(drawDiv);
+        } else if (playerSelection.target == rock && computerSelection == 'Scissors' || playerSelection.target == paper && computerSelection == 'Rock' || playerSelection.target == scissors && computerSelection == 'Paper') {
+            playerCount++;
+            scoreBoard.innerHTML = `Player wins
+            Player: ${playerCount}
+            Computer: ${computerCount}`;
+            document.body.appendChild(scoreBoard);
+        } else {
+            computerCount++;
+            scoreBoard.innerHTML = `Computer wins
+            Player: ${playerCount}
+            Computer: ${computerCount}`
+            document.body.appendChild(scoreBoard);
         }
     }
+
     if (playerCount == 5) {
         finalScore.innerHTML = `Player wins the game with the score of: ${playerCount} points`;
         document.body.appendChild(finalScore);
@@ -106,16 +61,12 @@ function playRound(playerSelection, computerSelection) {
 }
 
 const rock = document.querySelector('.rock');
-
 const paper = document.querySelector('.paper');
-
 const scissors = document.querySelector('.scissors');
 
 
 rock.addEventListener('click', playRound);
-
 paper.addEventListener('click', playRound);
-
 scissors.addEventListener('click', playRound);
 
 
