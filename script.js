@@ -31,12 +31,16 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     if (!(playerCount == 5 || computerCount == 5)) {
         computerSelection = computerPlay();
-        if (playerSelection.target == rock && computerSelection == 'Rock' || playerSelection.target == scissors && computerSelection == 'Scissors' || playerSelection.target == paper && computerSelection == 'Paper') {
+        if (playerSelection.target == rock && computerSelection == 'Rock' ||
+            playerSelection.target == scissors && computerSelection == 'Scissors' ||
+            playerSelection.target == paper && computerSelection == 'Paper') {
             scoreBoard.innerHTML = `Draw game`;
             drawDiv.innerHTML = ` Draw: ${drawCount++}`;
             document.body.appendChild(scoreBoard);
             document.body.appendChild(drawDiv);
-        } else if (playerSelection.target == rock && computerSelection == 'Scissors' || playerSelection.target == paper && computerSelection == 'Rock' || playerSelection.target == scissors && computerSelection == 'Paper') {
+        } else if (playerSelection.target == rock && computerSelection == 'Scissors' ||
+            playerSelection.target == paper && computerSelection == 'Rock' ||
+            playerSelection.target == scissors && computerSelection == 'Paper') {
             playerCount++;
             scoreBoard.innerHTML = `Player wins
             Player: ${playerCount}
