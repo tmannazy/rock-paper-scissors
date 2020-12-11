@@ -1,5 +1,13 @@
-let count = 0,
-    playerCount = 0,
+// playRound:
+//   player submits choice
+//   computer randomly chooses
+//   comparison happens
+//   score is updated
+//   round number is updated
+//   HTML is updated, displaying win/draw
+//   **Before the round ends, check if the game is over...
+
+let playerCount = 0,
     computerCount = 0,
     playerDiv = document.createElement('div'),
     computerDiv = document.createElement('div'),
@@ -96,15 +104,6 @@ function playRound(playerSelection, computerSelection) {
         document.body.appendChild(finalScore);
     }
 }
-
-// playRound:
-//   player submits choice
-//   computer randomly chooses
-//   comparison happens
-//   score is updated
-//   round number is updated
-//   HTML is updated, displaying win/draw
-//   **Before the round ends, check if the game is over...
 
 const rock = document.querySelector('.rock');
 
