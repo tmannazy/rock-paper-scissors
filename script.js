@@ -88,10 +88,10 @@ function playRound(playerSelection, computerSelection) {
             }
         }
     }
-    else if (playerCount == 5) {
+    if (playerCount == 5) {
         finalScore.innerHTML = `Player wins the game with the score of: ${playerCount}`;
         document.body.appendChild(finalScore);
-    } else {
+    } else  if (computerCount == 5) {
         finalScore.innerHTML = `Computer wins the game with the final score of ${computerCount}`;
         document.body.appendChild(finalScore);
     }
@@ -106,19 +106,20 @@ function playRound(playerSelection, computerSelection) {
 //   HTML is updated, displaying win/draw
 //   **Before the round ends, check if the game is over...
 
-    const rock = document.querySelector('.rock');
-    const paper = document.querySelector('.paper');
-    const scissors = document.querySelector('.scissors');
+const rock = document.querySelector('.rock');
 
-    rock.addEventListener('click', (e) => {
-        playRound(e)
-    });
-    paper.addEventListener('click', (e) => {
-        playRound(e)
-    });
-    scissors.addEventListener('click', (e) => {
-        playRound(e)
-    });
+const paper = document.querySelector('.paper');
+
+const scissors = document.querySelector('.scissors');
+
+
+rock.addEventListener('click', playRound);
+
+paper.addEventListener('click', playRound);
+
+scissors.addEventListener('click', playRound);
+
+
 
 
 
